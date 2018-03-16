@@ -22,6 +22,7 @@
 using namespace boost::asio;
 using Socket = ip::tcp::socket;
 using socket_ptr = boost::shared_ptr<Socket>;
+
 class client;
 class Server;
 
@@ -318,41 +319,3 @@ int main()
 	}
 	system("pause");
 }
-
-//void client_session(socket_ptr sok)
-//{
-//	while (true)
-//	{
-//		char data[512];
-//		size_t len = sok->read_some(buffer(data));
-//		std::string str(data, len);
-//		std::cout << str<< std::endl;
-//		if (str == "help")
-//		{
-//			sok->write_some(buffer("Timur"));
-//		}
-//	}
-//}
-//int main()
-//{
-//	
-//	io_service service;
-//	ip::tcp::endpoint ep(ip::tcp::v4(), 2002);
-//	ip::tcp::acceptor acc(service, ep);
-//	try
-//	{
-//		while (true)
-//		{
-//			socket_ptr sock(new ip::tcp::socket(service));
-//			acc.accept(*sock);
-//			std::thread th(client_session,move(sock));
-//			th.detach();
-//		}
-//	}
-//	catch (boost::system::system_error e)
-//	{
-//		setlocale(LC_ALL, "Rus");
-//		std::cout << e.what() << std::endl;
-//	}
-//	system("pause");
-//}
